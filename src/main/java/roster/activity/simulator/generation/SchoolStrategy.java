@@ -19,7 +19,7 @@ public class SchoolStrategy {
     private SchoolFactory schoolFactory;
     private ApplicationEventPublisher eventPublisher;
 
-    private int numberOfSchools = 3;
+    private int numberOfSchools = 2;
 
     public SchoolStrategy(SchoolFactory schoolFactory, ApplicationEventPublisher eventPublisher) {
         this.schoolFactory = schoolFactory;

@@ -12,7 +12,6 @@ import roster.activity.simulator.generation.domain.model.EmulationHour;
 import roster.activity.simulator.generation.domain.model.SchoolHourStarted;
 import roster.activity.simulator.generation.domain.model.StudentActivity;
 import roster.activity.simulator.generation.domain.model.StudentActivityPerformed;
-import roster.domain.model.Application;
 import roster.domain.model.School;
 import roster.domain.model.SchoolCreated;
 import roster.domain.model.Section;
@@ -31,8 +30,8 @@ import java.util.stream.IntStream;
 public class StudentActivityStrategy {
 
     private Logger logger = LoggerFactory.getLogger(StudentActivityStrategy.class);
-    private int daysToSimulate = 2;
-    private long realSecondsPerSimulatedHour = 1;
+    private int daysToSimulate = 90;
+    private long realMilistPerSimulatedHour = 14L;
 
     private ThreadPoolExecutor executorService;
     private ApplicationEventPublisher eventPublisher;
@@ -77,7 +76,7 @@ public class StudentActivityStrategy {
     public void scheduleSingleHourActivity(SchoolHourStarted schoolHourStarted) {
         logger.info("New hour [date={},h24={}]", schoolHourStarted.getSchoolHour().getSchoolDay().getDate(), schoolHourStarted.getSchoolHour().getHour24());
         Instant simulationStartedAt = Instant.now();
-        Instant simulationEndedAt = simulationStartedAt.plusSeconds(realSecondsPerSimulatedHour);
+        Instant simulationEndedAt = simulationStartedAt.plusMillis(realMilistPerSimulatedHour);
 
         schools.stream()
                .filter(school -> school.isWorkable(schoolHourStarted.getSchoolHour()))

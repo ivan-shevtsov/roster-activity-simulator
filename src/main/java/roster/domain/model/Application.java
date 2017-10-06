@@ -17,14 +17,22 @@ class Application {
     private static List<String> STRANGE_WORDS = Arrays.asList("images", "videos", "lessons", "play","go", "subj", "page", "smile");
     private static List<String> STRANGE_PARAMS = Arrays.asList("i", "v", "les", "doit","go", "sbj", "cnt", "rf");
 
-    private static final List<Application>  APPLICATIONS = Arrays.asList(
+/*    private static final List<Application>  APPLICATIONS = Arrays.asList(
             new Application("Moodle", "https://moddle.com"),
             new Application("KhanAcademy", "https://www.khanacademy.org"),
             new Application("Canvas", "https://canvas.com"),
             new Application("YouTube", "https://youtube.com"),
             new Application("Math365", "https://math365.com"),
             new Application("ReadingUp", "https://reading.yeap.com")
+    );*/
+
+    private static final List<Application>  APPLICATIONS = Arrays.asList(
+            new Application("Moodle", "https://cr-sm.powerschool.com"),
+            new Application("Canvas", "https://edutone.instructure.com"),
+            new Application("YouTube", "https://acps.instructure.com"),
+            new Application("Math365", "https://login.microsoftonline.com")
     );
+
 
     private String applicationId;
     private String baseUrl;
